@@ -15,7 +15,11 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarSize="10dp"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:scrollbarStyle="insideOverlay">
 
     </androidx.recyclerview.widget.RecyclerView>
 

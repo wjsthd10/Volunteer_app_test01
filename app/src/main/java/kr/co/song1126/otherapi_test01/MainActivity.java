@@ -1,10 +1,15 @@
 package kr.co.song1126.otherapi_test01;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     //봉사활동 장소 정보 리스트로 저장
     ArrayList<TestItems> items=new ArrayList<>();
+    ItemAdapter01 adapter01;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +36,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView=findViewById(R.id.recycler_main);
 
+
+
+
         prepArray();
         Log.e("TestItems", items.get(50).address);
+        adapter01=new ItemAdapter01(this, items);
+        recyclerView.setAdapter(adapter01);
+
 
 
     }
 
-    void prepArray(){
 
+    void prepArray(){
+        //  todo 버튼누르면 해당 타이틀에 따라서 데이터 분류해서 받고 표시하기 if문으로 0번째 줄빼고 보여주기
 
         try {
             CSVReader reader = new CSVReader(new InputStreamReader(getResources().openRawResource(R.raw.kr_volunteer_201907)));
